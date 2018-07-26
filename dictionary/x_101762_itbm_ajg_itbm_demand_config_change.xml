@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="update_synch=true" extends="dmn_stage_config" label="ITBM Demand Config change" max_length="40" name="x_101762_itbm_ajg_itbm_demand_config_change" type="collection"/>
+</database>

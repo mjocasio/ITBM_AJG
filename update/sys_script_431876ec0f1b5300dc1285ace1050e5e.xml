@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_101762_itbm_ajg_itbm_idea</collection>
+        <condition> gs.hasRole('x_101762_itbm_ajg.ITBM_AJG')  &amp;&amp; current.state == 2 &amp;&amp; current.demand.nil() &amp;&amp; previous.state != 2</condition>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Create Demand on Accepting Idea</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[// var demandTable = dmn_demand";
+
+var demandTable = "x_101762_itbm_ajg_itbm_ajg";
+//if(GlidePluginManager.isActive('com.snc.project_management_v3')){
+//	demandTable = SNC.PPMConfig.getDemandTable(current.getTableName());
+//}
+
+var demand = new GlideRecord(demandTable);
+demand.setValue("business_case", current.business_case);
+demand.setValue("short_description", current.short_description);
+demand.setValue("category","strategic");
+demand.setValue("type", "project");
+demand.setValue("submitter", current.submitter);
+demand.setValue("parent", current.sys_id);
+demand.setValue("idea", current.sys_id);
+var dmnId = demand.insert();
+demand.get(dmnId);
+current.demand = dmnId;
+current.stage = 'demand';
+var link = ' <a href ="/' + demandTable + '.do?sysparm_query=number%3D' + demand.getValue('number') + '">'+ demand.getValue('number') +'</a>';
+var message = gs.getMessage("Demand {0} has been created");
+message = message.replace("{0}", link);
+
+gs.addInfoMessage(message);
+]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-11 14:30:24</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>431876ec0f1b5300dc1285ace1050e5e</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Create Demand on Accepting Idea</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_update_name>sys_script_431876ec0f1b5300dc1285ace1050e5e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-11 19:48:42</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=431876ec0f1b5300dc1285ace1050e5e"/>
+</record_update>

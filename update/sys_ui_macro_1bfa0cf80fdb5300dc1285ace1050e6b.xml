@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description>Shows stage icons for workflows in predictive order if workflow version indicates 'computed' or in user specified order if not.</description>
+        <media_type/>
+        <name>Workflow-driven</name>
+        <scoped_name>x_101762_itbm_ajg_Workflow-driven</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-11 20:37:15</sys_created_on>
+        <sys_id>1bfa0cf80fdb5300dc1285ace1050e6b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Workflow-driven</sys_name>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_update_name>sys_ui_macro_1bfa0cf80fdb5300dc1285ace1050e6b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-11 20:37:15</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="true" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+<j:set var="jvar_renderer" value="Workflow-driven"/>
+
+<g:evaluate var="jvar_choices" jelly="true" object="true">
+
+    // get the api
+    var api = new SNC.RendererAPI('$[jvar_renderer]');
+
+    // build the full set of choices including subflows
+    // if we have an 'answer' global then it was populated
+    // by a getChoices bus-rule so use that otherwise
+    // use the renderer api to get them from the workflow
+    // generated choices in the context.
+    var choices = api.getAllWorkflowChoices(current, jelly.jvar_ref);
+    api.addIconsAndStatus(choices);
+
+    choices;
+</g:evaluate>
+
+<g:evaluate var="jvar_expand_id" jelly="true">
+    // Create a unique id across multiple workflow columns in the same table. 
+    var expand_id = jelly.jvar_workflow_id + '_' + jelly.jvar_ref;
+    var parts = jelly.jvar_ref.split('.');
+    if (parts.length >= 2) {
+        parts[0] = '';
+        expand_id = jelly.jvar_workflow_id + parts.join('_');
+    }
+    expand_id;
+</g:evaluate>
+
+<!-- called when you have successfully ordered an item from service catalog -->
+<j:set var="jvar_t" value="$[jvar_ref]" />
+<table id="workflow.$[jvar_expand_id]" border="0" cellpadding="0" cellspacing="0" 
+       style="margin-top: 2px; background-color: transparent;" >
+
+  <tr id="$[jvar_expand_id]">
+   
+  <!-- +/- expander box  -->
+  <td valign="top" style="background:transparent">
+    <span id="renderer" style="display:none">$[jvar_renderer]</span>
+    <span id="workflowfilter.$[jvar_expand_id]">
+      <a tabindex="0" onclick="togglePreference('$[jvar_expand_id]');" aria-controls="$[jvar_expand_id]">
+        <img id="filterimg.$[jvar_expand_id]" src="images/filter_hide16.gifx" alt="${gs.getMessage('Expand')}" 
+             border="0" title="${gs.getMessage('Expand')}" 
+             style="margin-top: 1px; margin-bottom: 1px;"/>
+      </a>
+  </span>
+  </td>
+  <td nowrap="true" style="background:transparent">
+  <j:forEach var="jvar_choice" items="$[jvar_choices]">
+    <g:evaluate var="jvar_item_idx" jelly="true">
+        var itemIdx = jelly.jvar_item_idx;
+        if (itemIdx == '' || typeof itemIdx == "undefined")
+            itemIdx = 1;
+        else
+            itemIdx = parseInt(itemIdx) + 1;
+        itemIdx;
+    </g:evaluate>
+    <g:evaluate var="jvar_choice_visible" jelly="true">
+        var isVisible = (jelly.jvar_isworkflow == 'false') || (jelly.jvar_choice.getParameter('visible')+'' == 'true');
+        if (jelly.jvar_choice.value == '')
+            isVisible = false;
+        isVisible;
+    </g:evaluate>
+       
+    <!-- we only want to display values that are not empty and are 'visible' -->
+    <j:if test="$[jvar_choice_visible]">
+      <g:evaluate var="jvar_image" jelly="true">
+		  var imgsrc = (jelly.jvar_choice.image+'').split(' ');
+		  imgsrc = imgsrc.length ? imgsrc[0] : imgsrc;
+		  imgsrc;
+	  </g:evaluate>
+      <!-- no image, provide default -->
+      <j:if test="$[jvar_choice.image == '']">
+        <j:if test="$[jvar_choice.selected]">
+          <j:set var="jvar_image" value="icon-check-circle"/>
+        </j:if>
+        <j:if test="$[!jvar_choice.selected]">
+            <j:set var="jvar_image" value="icon-empty-circle"/>
+        </j:if>
+      </j:if>
+      <span id="stage.$[jvar_item_idx].$[jvar_expand_id].$[jvar_choice.value]" stage="true" selected="$[jvar_choice.selected]" aria-expanded="false">
+      
+      <g:set_if test="$[GlideMobileExtensions.runningTablet() || gs.getProperty('glide.ui.doctype') == 'true']" var="jvar_display_type"
+                true="inline-block" false="inline" />
+
+        <table border="0" cellpadding="0" cellspacing="0" class="stageiconsinner"
+               style="background-color: transparent; display: $[jvar_display_type];">
+          
+          <tr id="$[jvar_expand_id]">
+            <td style="border: 0px; padding:2px; background-color: transparent;">
+                <g:set_if var="jvar_title" test="$[jvar_choice.getParameter('title') == undefined]" true="$[jvar_choice.label]" false="$[jvar_choice.getParameter('title')]" />
+                <img id="stage.$[jvar_item_idx].$[jvar_expand_id].$[jvar_choice.value].image" title="$[jvar_title]" 
+                     class="nopadding" src="images/heisenberg_icons/stage_icons/$[jvar_image].png" alt="$[jvar_choice.label]" aria-hidden="true"/>
+            </td>
+            <td id="stage.$[jvar_item_idx].$[jvar_expand_id].$[jvar_choice.value].text" style="display: none; z-index: -1; background-color: transparent;" nowrap="true">
+                <!-- IE quirkaround -->
+                <span style="margin-right: 3px;"><img src="images/s.gifx" alt="" aria-hidden="true"/></span>$[jvar_title] ($[jvar_choice.label])
+            </td>
+          </tr>
+        </table>
+      </span>
+    </j:if>
+  </j:forEach>
+  </td>
+</tr>
+</table>
+
+<g:evaluate var="jvar_expanded_pref" expression="gs.getPreference('workflow.expanded.$[jvar_ref_parent]')" />
+
+<j:if test="$[jvar_expanded_pref]">
+    <script>toggleItems('$[jvar_expand_id]');</script>    
+</j:if>
+
+
+</j:jelly>
+]]></xml>
+    </sys_ui_macro>
+</record_update>

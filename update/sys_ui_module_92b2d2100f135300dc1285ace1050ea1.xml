@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="ITBM_AJG">854d74750f031300dc1285ace1050e74</application>
+        <filter/>
+        <name>ITBM Ideas</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_101762_itbm_ajg.ITBM_AJG</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-10 17:08:34</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>92b2d2100f135300dc1285ace1050ea1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ITBM Ideas</sys_name>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_update_name>sys_ui_module_92b2d2100f135300dc1285ace1050ea1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-10 17:08:34</sys_updated_on>
+        <table>x_101762_itbm_ajg_itbm_idea</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+</record_update>

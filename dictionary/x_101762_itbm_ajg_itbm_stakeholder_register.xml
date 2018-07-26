@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="dmn_stakeholder_register" label="ITBM_Stakeholder_Register" max_length="40" name="x_101762_itbm_ajg_itbm_stakeholder_register" type="collection"/>
+</database>

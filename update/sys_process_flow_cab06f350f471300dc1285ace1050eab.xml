@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_process_flow">
+    <sys_process_flow action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition table="x_101762_itbm_ajg_itbm_ajg">state=8^EQ<item endquery="false" field="state" goto="false" newquery="false" operator="=" or="false" value="8"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
+        <description><![CDATA[<p>Demand has been approved</p>]]></description>
+        <label>Approved</label>
+        <name>8</name>
+        <order>5</order>
+        <sys_class_name>sys_process_flow</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-03 04:24:33</sys_created_on>
+        <sys_id>cab06f350f471300dc1285ace1050eab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>8</sys_name>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_update_name>sys_process_flow_cab06f350f471300dc1285ace1050eab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-03 04:24:33</sys_updated_on>
+        <table>x_101762_itbm_ajg_itbm_ajg</table>
+    </sys_process_flow>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description>ITBM_AJG Application for accepting request for the OCIO Pipeline process using the ServiceNow Project Demand Suite</description>
+        <device_type>browser</device_type>
+        <hint>ITBM_AJG Application</hint>
+        <name/>
+        <order>100</order>
+        <roles>x_101762_itbm_ajg.ITBM_AJG</roles>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-02 16:29:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7cac30750f031300dc1285ace1050eb2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ITBM_AJG</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_update_name>sys_app_application_7cac30750f031300dc1285ace1050eb2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-02 16:29:50</sys_updated_on>
+        <title>ITBM_AJG</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>

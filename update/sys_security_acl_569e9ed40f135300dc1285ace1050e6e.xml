@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Allow write for all fields in x_101762_itbm_ajg_itbm_idea, for users with role x_101762_itbm_ajg.ITBM_AJG.</description>
+        <name>x_101762_itbm_ajg_itbm_idea.*</name>
+        <operation display_value="write">write</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-10 18:01:41</sys_created_on>
+        <sys_id>569e9ed40f135300dc1285ace1050e6e</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_101762_itbm_ajg_itbm_idea.*</sys_name>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_update_name>sys_security_acl_569e9ed40f135300dc1285ace1050e6e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-10 18:05:03</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>

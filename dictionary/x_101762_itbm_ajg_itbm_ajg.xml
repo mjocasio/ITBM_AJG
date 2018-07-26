@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" extends="dmn_demand" label="ITBM_AJG" max_length="40" name="x_101762_itbm_ajg_itbm_ajg" sizeclass="4" type="collection"/>
+</database>

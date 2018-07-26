@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-07-13 17:13:50</sys_created_on>
+        <sys_id>e8b079990f5f9300dc1285ace1050eff</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_101762_itbm_ajg_itbm_demand_config_change.x_101762_itbm_ajg.ITBM_AJG</sys_name>
+        <sys_package display_value="ITBM_AJG" source="x_101762_itbm_ajg">c0dbf0350f031300dc1285ace1050e14</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="ITBM_AJG">c0dbf0350f031300dc1285ace1050e14</sys_scope>
+        <sys_security_acl display_value="x_101762_itbm_ajg_itbm_demand_config_change">e0b079990f5f9300dc1285ace1050efd</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e8b079990f5f9300dc1285ace1050eff</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-07-13 17:13:50</sys_updated_on>
+        <sys_user_role display_value="x_101762_itbm_ajg.ITBM_AJG" name="x_101762_itbm_ajg.ITBM_AJG">2e1c3c350f031300dc1285ace1050e5f</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
